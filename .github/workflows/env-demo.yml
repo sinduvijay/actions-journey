@@ -1,0 +1,20 @@
+name: workflowjourney
+on: push
+env:
+  APP_NAME: journey
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    env:
+      LOG_LEVEl: info
+    steps:
+      - name: firststep
+        run:|
+          echo "$APP_NAME"
+          echo " $LOG_LEVEL"
+      - name: second step
+        env:
+          LOG_LEVEL: debug
+        run: |
+          echo " $APP_NAME"
+          echo "$LOG_LEVEL"
