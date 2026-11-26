@@ -1,0 +1,16 @@
+name: secondworkflow
+on:
+  push:
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repo
+        uses: actions/checkout@v4
+      - name: printing files
+        run: |
+          uname -a
+          ls -la
+      - name: total files
+        run: ls -la
+
