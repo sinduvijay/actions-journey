@@ -1,16 +1,21 @@
-name: secondworkflow
-on:
-  push:
+name: Inspect Runner and Repo
+
+on: push
+
 jobs:
-  job:
+  inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: repo
+      - name: Check out repository
         uses: actions/checkout@v4
-      - name: printing files
+
+      - name: Print kernel details and repository files
         run: |
           uname -a
           ls -la
-      - name: total files
-        run: ls -la
+          find . -not -path '*/.*' | sort
 
+      - name: Count files in repository
+        run: |
+          count=$(find . -type f -not -path '*/.*' | wc -l)
+          echo "Total repository files: $count"
