@@ -8,6 +8,5 @@ jobs:
         run: echo " hi from runtests"
       - name: Deploy
         run: |
-          echo " hi from deploy"
           if: github.ref == 'refs/heads/main'
-
+          echo "done"
