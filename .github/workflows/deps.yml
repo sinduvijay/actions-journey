@@ -11,3 +11,6 @@ jobs:
           key: pip- ${{ hashFiles('requirements.txt') }}
           restore-keys: |
             pip-
+      - name: Install dependencies
+        run: python3 -m pip install --user -r requirements.txt
+
