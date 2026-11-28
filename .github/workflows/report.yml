@@ -1,0 +1,16 @@
+name: artifact
+on:
+  push:
+jobs: 
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: firststep
+        run: echo " date " >> report.txt
+
+      - name: storagepart
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: report.txt
+          retention-days: 5
