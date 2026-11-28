@@ -1,26 +1,7 @@
-name: newone
-on:
-  push:
+
+name: secondflow
+on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.ver.outputs.version }}
-    steps:
-      - name: first step
-        id: ver
-        run: echo "version=1.34" >> $GITHUB_OUTPUT
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Testing
-        run: echo "Testing completed"
+  job:
+    uses: /root/actions-journey/.github/workflows/checks.yml
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build, test]
-
-    steps:
-      - name: Deploy version
-        run: echo "${{ needs.build.outputs.version }}"
