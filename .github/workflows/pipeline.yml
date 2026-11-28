@@ -3,5 +3,5 @@ name: secondflow
 on: push
 jobs:
   job:
-    uses: /root/actions-journey/.github/workflows/checks.yml
+    uses: ./.github/workflows/checks.yml
 
